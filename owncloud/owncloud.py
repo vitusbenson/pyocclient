@@ -16,6 +16,7 @@ import os
 import math
 import six
 from six.moves.urllib import parse
+from tqdm import tqdm
 
 
 class ResponseError(Exception):
@@ -669,7 +670,7 @@ class Client(object):
         if chunk_count > 1:
             headers['OC-CHUNKED'] = '1'
 
-        for chunk_index in range(0, int(chunk_count)):
+        for chunk_index in tqdm(range(0, int(chunk_count))):
             data = file_handle.read(chunk_size)
             if chunk_count > 1:
                 chunk_name = '%s-chunking-%s-%i-%i' % \
