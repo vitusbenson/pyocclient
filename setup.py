@@ -30,7 +30,8 @@ setup(
     long_description=long_description,
     install_requires=[
         "requests >= 2.0.1",
-        "six"
+        "six",
+        "tqdm"
     ],
     classifiers=[
         'Programming Language :: Python',
