@@ -704,6 +704,8 @@ class Client(object):
         try:
             _ = self.list(path)
             exists = True
+        except:
+            exists = False
         if exists:
             return True
         return self._make_dav_request('MKCOL', path)
