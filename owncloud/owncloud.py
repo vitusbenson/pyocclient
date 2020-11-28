@@ -700,6 +700,12 @@ class Client(object):
         """
         if not path.endswith('/'):
             path += '/'
+        exists = False
+        try:
+            _ = self.list(path)
+            exists = True
+        if exists:
+            return True
         return self._make_dav_request('MKCOL', path)
 
     def delete(self, path):
